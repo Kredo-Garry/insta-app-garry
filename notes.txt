@@ -1,0 +1,76 @@
+Categories Table
+Category id                            Category name
+    1                                      Travel
+    2                                      Food
+    3                                      Lifestyle
+    4                                      Technology
+    5                                      Career
+    6                                      Movie
+
+------------------------------------------------------------------------------------------
+Posts Table
+   Post id            Description of the post                  Categories of the post 
+   -------            -----------------------                  -----------------------
+     1                  Trip To Maldives                       Travel(1), Career(5), Lifestyle(3)
+     2                  Eating Healthy Foods                   Food(2), Lifestyle(3)
+
+
+---------------------------------------------------------------------------------------------
+Category_Post (PIVOT Table)
+
+Category_post Table
+Post_id                   Category_id
+   1                           1
+   1                           5
+   1                           3
+   2                           2
+   2                           3
+
+
+          Follows Table                                 Users Table
+follower_id      following_id                          id         name
+     1                 2                               1          John Doe
+     1                 3                               2          Tim Watson
+     2                 1                               3          Test user1
+     2                 3
+
+
+
+*****************************************************************
+1. Create a file "following.blade.php"
+2. Add/Include the "header.blade.php" into the "following.blade.php"
+3. In the profile controller, create a method called "following"
+3. Display the list of users followed by AUTH user in "following.blade.php"
+4. Create the  route
+5. Testing
+
+*****************************************************************
+Homework: 01-22-2024
+1. Register atleast 10 users
+2. Limit the output of the suggested users in the homepage (7 users only)
+
+
+*********************************************************************
+Activity/Homework : Hide the post in admin when button is clicked
+
+1. Create a soft_deletes file (migration file)
+2. Use the SoftDeletes class in Post.php
+3. Create a modal for hiding the post
+4. Create a route
+5. Testing
+
+-----------------
+1/25/2024
+To continue on the Uncategorized post
+****************************************************************
+
+What is MIDDLEWARE? 
+
+Answer: Middleware is a class file. It is a mechanism for inspecting and filtering the HTTP request entering our application
+Think of a middleware as a layer of SECURITY.
+We are going to create our own middleware --> AdminMiddleware. The purpose of this middleware is to allow or deny access to admin pages (Admin button).
+
+How do we allow or deny? Our basis will to set the role_id = 1 in the database (admin), if it is equal to 1, meaning that user is not an admin.
+*********************************************************************************
+Seeder (Database Seeder) - What is this?
+The database seeder will help us create or insert records into the database.
