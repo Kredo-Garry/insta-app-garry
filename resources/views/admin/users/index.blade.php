@@ -3,6 +3,15 @@
 @section('title', 'Admin: Users')
 
 @section('content')
+    <div class="container mb-2 pe-0">
+        <div class="row justify-content-end">
+            <div class="col-auto">
+                <form action="{{ route('admin.users') }}" method="get" class="float-end" style="width: 300px">
+                    <input type="search" name="search" id="search" class="form-control form-control-sm" placeholder="Search for names..." value="{{ $search }}">
+                </form>
+            </div>
+        </div>
+    </div>
     <table class="table table-hover align-middle bg-white border text-secondary">
         <thead class="small table-success text-secondary">
             <tr>
@@ -15,7 +24,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($all_users as $user)
+            @forelse ($all_users as $user)
                 <tr>
                     <td>
                         @if ($user->avatar)
@@ -62,7 +71,11 @@
                         @endif
                     </td>
                 </tr>
-            @endforeach
+            @empty
+                <tr>
+                    <td colspan="6" class="text-center"> No Results Found.</td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
     <div class="d-flex justify-content-center">
